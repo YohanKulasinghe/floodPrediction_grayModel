@@ -11,7 +11,7 @@ git clone https://github.com/YohanKulasinghe/floodPrediction_grayModel.git
 
 from root folder run followings
 ```
-cd floodPrediction
+cd floodForcasting
 npm install
 ng serve
 ```
