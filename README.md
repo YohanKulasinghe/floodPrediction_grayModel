@@ -4,14 +4,21 @@ Grey forecast can be used to predict behavior of non-linear time series. This is
 
 **How to Run this Project**
 
-- Clone the repo. 
+Clone the repo. 
+```
+git clone https://github.com/YohanKulasinghe/floodPrediction_grayModel.git
+```
 
-from root folder
-- cd floodPrediction
-- npm install
-- ng serve
+from root folder run followings
+```
+cd floodPrediction
+npm install
+ng serve
+```
 
-from root folder
-- cd grayModel
-- pip install flask
-- python run model.py
+from root folder run followings
+```
+cd grayModel
+pip install flask
+python run model.py
+```
