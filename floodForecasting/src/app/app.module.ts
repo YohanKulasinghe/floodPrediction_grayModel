@@ -7,17 +7,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ModelComponent } from './model/model.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ModelComponent
+    ModelComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'model', component: ModelComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
