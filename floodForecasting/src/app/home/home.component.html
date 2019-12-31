@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="row" style="display: flex;">
+
+    <div class="col-sm-6">
+        <div class="getDataContainer">
+            <p class="getDataTittle">Click button to read rainfall data ...</p>
+            <button class="getDataButton" (click)="onClickRainfall()">Click me!</button>
+        </div>
+        <textarea class="getDataLabel" disabled> {{rainfallData}} </textarea>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="getDataContainer">
+            <p class="getDataTittle">Click button to read waterlevel data ...</p>
+            <button class="getDataButton" (click)="onClickWaterlevel()">Click me!</button>
+        </div> 
+        <textarea class="getDataLabel" disabled> {{waterlevelData}} </textarea>
+    </div>
+
+</div>
