@@ -20,5 +20,6 @@ from root folder run followings
 ```
 cd grayModel
 pip install flask
+python -m pip install --user numpy matplotlib pandas
 python run model.py
 ```
