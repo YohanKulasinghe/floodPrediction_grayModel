@@ -6,7 +6,7 @@ from flask_jsonpify import jsonify
 import matplotlib.pyplot as plt
 import numpy as np
 import xlrd 
-
+import json
 
 app = Flask(__name__)
 api = Api(app)
@@ -28,12 +28,24 @@ def getRainData():
     for i in range(sheet.nrows): 
         my_list.append(sheet.cell_value(i, 1))
 
-   
-    return jsonify(my_list )
+    return jsonify(my_list)
     
 @app.route('/getwaterleveldata')
 def getWaterData():
     return jsonify("no Data Found")
+
+@app.route('/getAccumilatedData',methods =['POST'])
+def generateAccumilatedData():
+    req = json.loads(request.data.decode())
+    x1 = req['rowData']
+    def accumulation(lis):
+        total = 0
+        for x in lis:
+            total += x
+            yield total
+   
+    accData = list(accumulation(x1))
+    return jsonify(accData)
 
 if __name__ == '__main__':
     app.run(debug=True)

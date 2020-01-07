@@ -3,17 +3,49 @@
     <div class="col-sm-6">
         <div class="getDataContainer">
             <p class="getDataTittle">Click button to read rainfall data ...</p>
-            <button class="getDataButton" (click)="onClickRainfall()">Click me!</button>
+            <button class="getDataButton" (click)="getRainfallData()">Click me!</button>
         </div>
         <textarea class="getDataLabel" disabled> {{rainfallData}} </textarea>
+        <div>
+            <button class="viewDataButton" (click)="rainfallView()">Click to View!</button>
+        </div>
     </div>
 
     <div class="col-sm-6">
         <div class="getDataContainer">
             <p class="getDataTittle">Click button to read waterlevel data ...</p>
-            <button class="getDataButton" (click)="onClickWaterlevel()">Click me!</button>
+            <button class="getDataButton" (click)="getWaterlevelData()">Click me!</button>
         </div> 
         <textarea class="getDataLabel" disabled> {{waterlevelData}} </textarea>
+        <div>
+            <button class="viewDataButton" (click)="waterlevelView()">Click to View!</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" style="display: flex;">
+
+    <div class="col-sm-6">
+        <div class="getAccuDataContainer">
+            <p class="getAccuDataTittle">Click button to get accumitated rainfall data (AGO)...</p>
+            <button class="getAccuDataButton" (click)="getAccuRainFallData()" [disabled] = !isGetRainfallData>Click me!</button>
+        </div>
+        <textarea class="getAccuDataLabel" disabled> {{rainfallAccuData}} </textarea>
+        <div>
+            <button class="viewAccuDataButton" (click)="AccuRainfallView()" [disabled] = !isGetRainfallData>Click to View!</button>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="getAccuDataContainer">
+            <p class="getAccuDataTittle">Click button to get accumilate waterlevel data (AGO)...</p>
+            <button class="getAccuDataButton" (click)="getAccuWaterLevelData()" [disabled] = !isGetWaterLevelData>Click me!</button>
+        </div> 
+        <textarea class="getAccuDataLabel" disabled> {{waterlevelAccuData}} </textarea>
+        <div>
+            <button class="viewAccuDataButton" (click)="AccuWaterlevelView()" [disabled] = !isGetWaterLevelData>Click to View!</button>
+        </div>
     </div>
 
 </div>
