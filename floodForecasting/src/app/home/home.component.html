@@ -49,3 +49,23 @@
     </div>
 
 </div>
+
+<div class="row" style="display: flex;">
+
+    <div class="col-sm-6">
+        <div class="getZValueDataContainer">
+            <p class="getZValueDataTitle">Initializes the model for rainfall data ...</p>
+            <button class="getZValueDataButton" (click)="getRainFallHatValues()" [disabled] = !isGetRainfallZValues>Click me!</button>
+        </div>
+        <textarea class="getZValueDataLabel" disabled> {{rainFallHatValus}} </textarea>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="getZValueDataContainer">
+            <p class="getZValueDataTitle">Initializes the model for waterlevel data ...</p>
+            <button class="getZValueDataButton" (click)="getWaterLevelHatValues()" [disabled] = !isGetWaterLevelZValues>Click me!</button>
+        </div> 
+        <textarea class="getZValueDataLabel" disabled> {{waterLevelHatValus}} </textarea>
+    </div>
+
+</div>

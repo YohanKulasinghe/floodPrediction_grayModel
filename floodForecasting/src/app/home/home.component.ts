@@ -12,11 +12,20 @@ import { ChartComponent } from '../chart/chart.component';
 export class HomeComponent implements OnInit {
   rainfallData: any;
   waterlevelData: any;
+  
   isGetRainfallData = false;
   isGetWaterLevelData = false;
 
   rainfallAccuData: any;
   waterlevelAccuData: any;
+
+  rainFallHatValus: any;
+  waterLevelHatValus: any;
+
+  isGetRainfallZValues = false;
+  isGetWaterLevelZValues = false;
+
+
 
   constructor(
     private http: HttpClient,
@@ -46,12 +55,14 @@ export class HomeComponent implements OnInit {
    * Get Accumilated Data
    */
   getAccuRainFallData() {
+    this.isGetRainfallZValues = true;
     this.http.post('http://localhost:5000/getAccumilatedData', { 'rowData': this.rainfallData }).subscribe(res => {
       this.rainfallAccuData = res;
     });
   }
 
   getAccuWaterLevelData() {
+    this.isGetWaterLevelZValues = true;
     this.http.get('http://localhost:5000/getAccumilatedData').subscribe(res => {
       this.waterlevelAccuData = res;
     });
@@ -78,5 +89,20 @@ export class HomeComponent implements OnInit {
 
   AccuWaterlevelView() {
     this.dialog.open(ChartComponent, {data: {data: this.waterlevelAccuData}});
+  }
+
+  /**
+   * Get Z values
+   */
+  getRainFallHatValues(){
+    this.http.post('http://localhost:5000/initializesModel',{ 'accuData': this.rainfallAccuData, 'rowData': this.rainfallData }).subscribe(res => {
+      this.rainFallHatValus = res;
+    });
+  }
+
+  getWaterLevelHatValues(){
+    this.http.post('http://localhost:5000/initializesModel',{ 'accuData': this.waterlevelAccuData, 'rowData': this.waterlevelData }).subscribe(res => {
+      this.waterLevelHatValus = res;
+    });
   }
 }
