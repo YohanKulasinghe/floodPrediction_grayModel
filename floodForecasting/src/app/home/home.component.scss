@@ -59,10 +59,23 @@
     text-align: center;
 }
 
+.horizontalSeperator{
+    height: 20px
+}
+
 .predictedRainfall{
     
 }
 
 .predictedWaterLevel{
     
+}
+
+.analyzeWrapper{
+    text-align: center;
+}
+
+.analyzeButton{
+    position: absolute;
+    margin: 20px 0px 20px -76px;
 }

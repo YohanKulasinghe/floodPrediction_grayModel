@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
 
   isGetRainfallHatValues = false;
   isGetWaterLevelHatValues = false;
+  
+  predictedYear: any;
+  rainFallHatValusLabel: string;
+  waterLevelHatValusLabel: string;
 
 
 
@@ -97,14 +101,32 @@ export class HomeComponent implements OnInit {
   getRainFallHatValues(){
     this.http.post('http://localhost:5000/initializesModel',{ 'accuData': this.rainfallAccuData, 'rowData': this.rainfallData }).subscribe(res => {
       this.rainFallHatValus = res;
+      this.rainFallHatValusLabel = 'Success'
     });
   }
 
   getWaterLevelHatValues(){
     this.http.post('http://localhost:5000/initializesModel',{ 'accuData': this.waterlevelAccuData, 'rowData': this.waterlevelData }).subscribe(res => {
       this.waterLevelHatValus = res;
+      this.waterLevelHatValusLabel = 'Success'
     });
   }
 
+  /**
+   * Get Forcasted values
+   */
   
+  getRainFallForecastValue(){
+    this.http.post('http://localhost:5000/initializesModel',{ 'rowData': this.rainfallData, 'hats':this.rainFallHatValus, 'year':this.predictedYear }).subscribe(res => {
+      this.rainFallHatValus = res;
+    });
+  }
+
+  getWaterLevelForecastValue(){
+    this.http.post('http://localhost:5000/initializesModel',{ 'rowData': this.rainfallData, 'hats':this.waterLevelHatValus, 'year':this.predictedYear }).subscribe(res => {
+      this.rainFallHatValus = res;
+    });
+  }
+
+
 }

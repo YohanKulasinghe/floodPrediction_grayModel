@@ -57,7 +57,7 @@
             <p class="getHatValueDataTitle">Initializes the model for rainfall data ...</p>
             <button class="getHatValueDataButton" (click)="getRainFallHatValues()" [disabled] = !isGetRainfallHatValues>Click me!</button>
         </div>
-        <textarea class="getHatValueDataLabel" disabled> {{rainFallHatValus}} </textarea>
+        <textarea class="getHatValueDataLabel" disabled> {{rainFallHatValusLabel}} </textarea>
     </div>
 
     <div class="col-sm-6">
@@ -65,7 +65,7 @@
             <p class="getHatValueDataTitle">Initializes the model for waterlevel data ...</p>
             <button class="getHatValueDataButton" (click)="getWaterLevelHatValues()" [disabled] = !isGetWaterLevelHatValues>Click me!</button>
         </div> 
-        <textarea class="getHatValueDataLabel" disabled> {{waterLevelHatValus}} </textarea>
+        <textarea class="getHatValueDataLabel" disabled> {{waterLevelHatValusLabel}} </textarea>
     </div>
 
 </div>
@@ -73,17 +73,24 @@
 <div> 
     <div class="expectedYear">
         <p>Insert expected year : </p>
-        <input type='text'>
+        <input type='text' style="width:50px">
+        <button style="margin-left: 10px;">Get Prediction</button>
     </div>
 </div>
 
+<div class="horizontalSeperator"></div>
+
 <div class = "row">
     <div class="col-sm-6 predictedRainfall">
-        <p>Predicted Rainfail</p>
-        <label>{{predictedRainfall}}</label>
+        <p style="float: right;">Predicted Rainfail</p>
+        <label style="float: right;">{{predictedRainfall}}</label>
     </div>
     <div class='col-sm-6 predictedWaterLevel'>
         <p>Predicted WaterLevel</p>
         <label>{{predictedWaterLevel}}</label>
     </div>
+</div>
+
+<div class="analyzeWrapper">
+    <button class="analyzeButton">Analyze Flood Risk</button>
 </div>
