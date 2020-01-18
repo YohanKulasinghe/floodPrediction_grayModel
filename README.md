@@ -19,8 +19,12 @@ ng serve
 from root folder run followings
 ```
 cd grayModel
-pip install flask
-pip install flask_cors flask_restful flask_jsonpify
-python -m pip install --user numpy matplotlib pandas
+pip install Flask
+pip install -U flask-cors
+pip install flask-restful
+pip install flask-jsonpify
+pip install matplotlib
+pip install pandas
+pip install xlrd
 python run model.py
 ```
