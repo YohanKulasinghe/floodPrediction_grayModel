@@ -38,19 +38,31 @@
     margin-left: 20px;
 }
 
-.getZValueDataContainer{
+.getHatValueDataContainer{
     margin: 25px 0px 0px 10px;
     display: flex;
 }
 
-.getZValueDataButton{
+.getHatValueDataButton{
     margin-left: 25px;
     height: 30px;
 }
 
-.getZValueDataLabel{
+.getHatValueDataLabel{
     width: inherit;
-    height: 200px;
+    height: 40px;
     background: white;
 }
 
+.expectedYear{
+    display: block;
+    text-align: center;
+}
+
+.predictedRainfall{
+    
+}
+
+.predictedWaterLevel{
+    
+}

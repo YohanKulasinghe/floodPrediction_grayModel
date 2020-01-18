@@ -53,19 +53,37 @@
 <div class="row" style="display: flex;">
 
     <div class="col-sm-6">
-        <div class="getZValueDataContainer">
-            <p class="getZValueDataTitle">Initializes the model for rainfall data ...</p>
-            <button class="getZValueDataButton" (click)="getRainFallHatValues()" [disabled] = !isGetRainfallZValues>Click me!</button>
+        <div class="getHatValueDataContainer">
+            <p class="getHatValueDataTitle">Initializes the model for rainfall data ...</p>
+            <button class="getHatValueDataButton" (click)="getRainFallHatValues()" [disabled] = !isGetRainfallHatValues>Click me!</button>
         </div>
-        <textarea class="getZValueDataLabel" disabled> {{rainFallHatValus}} </textarea>
+        <textarea class="getHatValueDataLabel" disabled> {{rainFallHatValus}} </textarea>
     </div>
 
     <div class="col-sm-6">
-        <div class="getZValueDataContainer">
-            <p class="getZValueDataTitle">Initializes the model for waterlevel data ...</p>
-            <button class="getZValueDataButton" (click)="getWaterLevelHatValues()" [disabled] = !isGetWaterLevelZValues>Click me!</button>
+        <div class="getHatValueDataContainer">
+            <p class="getHatValueDataTitle">Initializes the model for waterlevel data ...</p>
+            <button class="getHatValueDataButton" (click)="getWaterLevelHatValues()" [disabled] = !isGetWaterLevelHatValues>Click me!</button>
         </div> 
-        <textarea class="getZValueDataLabel" disabled> {{waterLevelHatValus}} </textarea>
+        <textarea class="getHatValueDataLabel" disabled> {{waterLevelHatValus}} </textarea>
     </div>
 
+</div>
+
+<div> 
+    <div class="expectedYear">
+        <p>Insert expected year : </p>
+        <input type='text'>
+    </div>
+</div>
+
+<div class = "row">
+    <div class="col-sm-6 predictedRainfall">
+        <p>Predicted Rainfail</p>
+        <label>{{predictedRainfall}}</label>
+    </div>
+    <div class='col-sm-6 predictedWaterLevel'>
+        <p>Predicted WaterLevel</p>
+        <label>{{predictedWaterLevel}}</label>
+    </div>
 </div>

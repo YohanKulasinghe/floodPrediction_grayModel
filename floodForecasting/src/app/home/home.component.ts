@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
   rainFallHatValus: any;
   waterLevelHatValus: any;
 
-  isGetRainfallZValues = false;
-  isGetWaterLevelZValues = false;
+  isGetRainfallHatValues = false;
+  isGetWaterLevelHatValues = false;
 
 
 
@@ -55,14 +55,14 @@ export class HomeComponent implements OnInit {
    * Get Accumilated Data
    */
   getAccuRainFallData() {
-    this.isGetRainfallZValues = true;
+    this.isGetRainfallHatValues = true;
     this.http.post('http://localhost:5000/getAccumilatedData', { 'rowData': this.rainfallData }).subscribe(res => {
       this.rainfallAccuData = res;
     });
   }
 
   getAccuWaterLevelData() {
-    this.isGetWaterLevelZValues = true;
+    this.isGetWaterLevelHatValues = true;
     this.http.get('http://localhost:5000/getAccumilatedData').subscribe(res => {
       this.waterlevelAccuData = res;
     });
@@ -105,4 +105,6 @@ export class HomeComponent implements OnInit {
       this.waterLevelHatValus = res;
     });
   }
+
+  
 }

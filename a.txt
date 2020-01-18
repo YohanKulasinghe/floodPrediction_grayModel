@@ -1,0 +1,6 @@
+k=51
+Accumilated_1 = (x0[1] - (b/a))*math.exp(-1*a*(k)) + (b/a)
+Accumilated_2 = (x0[1] - (b/a))*math.exp(-1*a*(k-1)) + (b/a)
+
+x_forecast =Accumilated_1 - Accumilated_2
+print(x_forecast)
