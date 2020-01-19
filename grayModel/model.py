@@ -106,32 +106,31 @@ def rainfallprediction():
     req = json.loads(request.data.decode())
     rowData = req['rowData']
     hats = req['hats']
-    year = req['year']
+    k = int(req['k'])
 
-    a = hats[0].item()
-    b = hats[1].item()
-
-    Accumilated_1 = (rowData[1] - (b/a))*math.exp(-1*a*(year)) + (b/a)
-    Accumilated_2 = (rowData[1] - (b/a))*math.exp(-1*a*(year-1)) + (b/a)
+    a = hats[0]
+    b = hats[1]    
     
-    rainfallForecast =Accumilated_1 - Accumilated_2
-
+    Accumilated_1 = (rowData[1] - (b/a))*math.exp(-1*a*(k)) + (b/a)
+    Accumilated_2 = (rowData[1] - (b/a))*math.exp(-1*a*(k-1)) + (b/a)
+    rainfallForecast = Accumilated_1 - Accumilated_2
+    
     return jsonify(rainfallForecast)
+   
 
 @app.route('/waterlevelprediction', methods=['POST'])
 def waterlevelprediction():
     req = json.loads(request.data.decode())
     rowData = req['rowData']
     hats = req['hats']
-    year = req['year']
+    k = int(req['k'])
 
-    a = hats[0].item()
-    b = hats[1].item()
-
-    Accumilated_1 = (rowData[1] - (b/a))*math.exp(-1*a*(year)) + (b/a)
-    Accumilated_2 = (rowData[1] - (b/a))*math.exp(-1*a*(year-1)) + (b/a)
+    a = hats[0]
+    b = hats[1]    
     
-    waterlevelForecast =Accumilated_1 - Accumilated_2
+    Accumilated_1 = (rowData[1] - (b/a))*math.exp(-1*a*(k)) + (b/a)
+    Accumilated_2 = (rowData[1] - (b/a))*math.exp(-1*a*(k-1)) + (b/a)
+    waterlevelForecast = Accumilated_1 - Accumilated_2
 
     return jsonify(waterlevelForecast)
 

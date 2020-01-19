@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material'
 import { ChartComponent } from '../chart/chart.component';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 
 @Component({
@@ -24,10 +25,13 @@ export class HomeComponent implements OnInit {
 
   isGetRainfallHatValues = false;
   isGetWaterLevelHatValues = false;
-  
-  predictedYear: any;
+
   rainFallHatValusLabel: string;
   waterLevelHatValusLabel: string;
+  kValue: any;
+
+  predictedRainfall: any;
+  predictedWaterLevel: any;
 
 
 
@@ -115,16 +119,23 @@ export class HomeComponent implements OnInit {
   /**
    * Get Forcasted values
    */
+
+  onSubmit(){
+    console.log(this.kValue)
+    this.getRainFallForecastValue(this.kValue);
+   // this.getWaterLevelForecastValue(this.kValue);
+  }
+
   
-  getRainFallForecastValue(){
-    this.http.post('http://localhost:5000/initializesModel',{ 'rowData': this.rainfallData, 'hats':this.rainFallHatValus, 'year':this.predictedYear }).subscribe(res => {
-      this.rainFallHatValus = res;
+  getRainFallForecastValue(kValue){
+    this.http.post('http://localhost:5000/rainfallprediction',{ 'rowData': this.rainfallData, 'hats':this.rainFallHatValus, 'k':kValue }).subscribe(res => {
+      this.predictedRainfall = res;
     });
   }
 
-  getWaterLevelForecastValue(){
-    this.http.post('http://localhost:5000/initializesModel',{ 'rowData': this.rainfallData, 'hats':this.waterLevelHatValus, 'year':this.predictedYear }).subscribe(res => {
-      this.rainFallHatValus = res;
+  getWaterLevelForecastValue(kValue){
+    this.http.post('http://localhost:5000/waterlevelprediction',{ 'rowData': this.rainfallData, 'hats':this.waterLevelHatValus, 'k':kValue }).subscribe(res => {
+      this.predictedWaterLevel = res;
     });
   }
 
