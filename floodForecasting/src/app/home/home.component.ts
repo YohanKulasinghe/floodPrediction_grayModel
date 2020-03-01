@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material'
 import { ChartComponent } from '../chart/chart.component';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { AlertComponent } from '../alert/alert.component';
 
 
 @Component({
@@ -37,7 +38,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private alert: MatDialog) { }
 
   ngOnInit() {
   }
@@ -142,4 +144,10 @@ export class HomeComponent implements OnInit {
   }
 
 
+  showAlert(){
+    this.alert.open(AlertComponent, {
+      height: '200px',
+      width: '600px',
+    });
+  }
 }

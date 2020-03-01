@@ -94,5 +94,8 @@
 </div>
 
 <div class="analyzeWrapper">
-    <button class="analyzeButton" [disabled] = !getPrediction>Analyze Flood Risk</button>
+    <button class="analyzeButton" (click) = "showAlert()" >Analyze Flood Risk</button>
 </div>
+
+
+<!-- [disabled] = !getPrediction -->

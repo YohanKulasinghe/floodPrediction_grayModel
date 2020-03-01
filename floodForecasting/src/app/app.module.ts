@@ -13,17 +13,20 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   entryComponents:[
-    ChartComponent
+    ChartComponent,
+    AlertComponent
   ],
   declarations: [
     AppComponent,
     HomeComponent,
     ModelComponent,
     NavbarComponent,
-    ChartComponent
+    ChartComponent,
+    AlertComponent
   ],
   imports: [
     ChartsModule,
