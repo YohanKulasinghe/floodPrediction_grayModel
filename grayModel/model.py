@@ -22,7 +22,7 @@ def index():
 
 @app.route('/getrainfalldata')
 def getRainData():
-    loc = ("dataSource/AMBANPITIYA.xlsx")
+    loc = ("dataSource/NIRMAFINAL.xlsx")
     my_list = []
 
     wb = xlrd.open_workbook(loc)
@@ -30,14 +30,24 @@ def getRainData():
     sheet.cell_value(0, 0)
 
     for i in range(sheet.nrows):
-        my_list.append(sheet.cell_value(i, 1))
+        my_list.append(sheet.cell_value(i, 2))
 
     return jsonify(my_list)
 
 
 @app.route('/getwaterleveldata')
 def getWaterData():
-    return jsonify("no Data Found")
+    loc = ("dataSource/NIRMAFINAL.xlsx")
+    my_list = []
+
+    wb = xlrd.open_workbook(loc)
+    sheet = wb.sheet_by_index(0)
+    sheet.cell_value(0, 0)
+
+    for i in range(sheet.nrows):
+        my_list.append(sheet.cell_value(i, 3))
+
+    return jsonify(my_list)
 
 
 @app.route('/getAccumilatedData', methods=['POST'])

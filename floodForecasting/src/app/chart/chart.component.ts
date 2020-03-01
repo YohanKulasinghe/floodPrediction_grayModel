@@ -24,7 +24,7 @@ export class ChartComponent implements OnInit {
   }
 
   lineChartData: ChartDataSets[] = [
-    { data: this.data.data, label: 'Crude oil prices' },
+    { data: this.data.data, label: this.data.label },
   ];
 
   lineChartLabels: Label[] = this.l;

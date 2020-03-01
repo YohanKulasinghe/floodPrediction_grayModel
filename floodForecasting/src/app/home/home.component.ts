@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   predictedRainfall: any;
   predictedWaterLevel: any;
 
-
+  getPrediction = false;
 
   constructor(
     private http: HttpClient,
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
 
   getAccuWaterLevelData() {
     this.isGetWaterLevelHatValues = true;
-    this.http.get('http://localhost:5000/getAccumilatedData').subscribe(res => {
+    this.http.post('http://localhost:5000/getAccumilatedData', { 'rowData': this.waterlevelData }).subscribe(res => {
       this.waterlevelAccuData = res;
     });
   }
@@ -80,11 +80,11 @@ export class HomeComponent implements OnInit {
    * View Row Data
    */
   rainfallView() {
-    this.dialog.open(ChartComponent, {data: {data: this.rainfallData}});
+    this.dialog.open(ChartComponent, {data: {data: this.rainfallData, label:'Rainfall Row Data'}});
   }
 
   waterlevelView() {
-    this.dialog.open(ChartComponent, {data: {data: this.waterlevelData}});
+    this.dialog.open(ChartComponent, {data: {data: this.waterlevelData, label:'Waterlevel Row Data'}});
   }
 
   /**
@@ -92,11 +92,11 @@ export class HomeComponent implements OnInit {
    */
 
   AccuRainfallView() {
-    this.dialog.open(ChartComponent, {data: {data: this.rainfallAccuData}});
+    this.dialog.open(ChartComponent, {data: {data: this.rainfallAccuData, label:'Rainfall Data After AGO'}});
   }
 
   AccuWaterlevelView() {
-    this.dialog.open(ChartComponent, {data: {data: this.waterlevelAccuData}});
+    this.dialog.open(ChartComponent, {data: {data: this.waterlevelAccuData, label:'Waterlevel Data After AGO'}});
   }
 
   /**
@@ -121,21 +121,23 @@ export class HomeComponent implements OnInit {
    */
 
   onSubmit(){
-    console.log(this.kValue)
     this.getRainFallForecastValue(this.kValue);
-   // this.getWaterLevelForecastValue(this.kValue);
+    this.getWaterLevelForecastValue(this.kValue);
   }
 
   
   getRainFallForecastValue(kValue){
     this.http.post('http://localhost:5000/rainfallprediction',{ 'rowData': this.rainfallData, 'hats':this.rainFallHatValus, 'k':kValue }).subscribe(res => {
       this.predictedRainfall = res;
+      this.predictedRainfall = this.predictedRainfall.toFixed(3);
+      this.getPrediction = true;
     });
   }
 
   getWaterLevelForecastValue(kValue){
     this.http.post('http://localhost:5000/waterlevelprediction',{ 'rowData': this.rainfallData, 'hats':this.waterLevelHatValus, 'k':kValue }).subscribe(res => {
       this.predictedWaterLevel = res;
+      this.predictedWaterLevel = this.predictedWaterLevel.toFixed(3);
     });
   }
 
