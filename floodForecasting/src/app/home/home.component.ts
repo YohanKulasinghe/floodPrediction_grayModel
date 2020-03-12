@@ -145,21 +145,23 @@ export class HomeComponent implements OnInit {
 
 
   showAlert(){
-  const risk = false;
+    // this.predictedRainfall = 500;
+    // this.predictedWaterLevel = 3;
 
-  if(risk){
-    this.alert.open(AlertComponent, {
-      height: '200px',
-      width: '600px',
-      data:{alertMessage:'Be alert,There might be a flood in that entered month', image: '1'}
-    });
-  } else{
-    this.alert.open(AlertComponent, {
-      height: '200px',
-      width: '600px',
-      data:{alertMessage:'Be Relax,There is no flood risk in that entered month', image: '2'}
-    });
+    if (this.predictedRainfall > 400.7 && this.predictedWaterLevel > 2.75){
+      this.alert.open(AlertComponent, {
+        height: '200px',
+        width: '600px',
+        data:{alertMessage:'Be alert,There might be a flood in that entered month', image: '1'}
+      });
+    } else {
+      this.alert.open(AlertComponent, {
+        height: '200px',
+        width: '600px',
+        data:{alertMessage:'Be Relax,There is no flood risk in that entered month', image: '2'}
+      });
+    }
   }
-  }
+
 }
 

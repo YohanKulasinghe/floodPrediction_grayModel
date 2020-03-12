@@ -92,5 +92,69 @@ print(X_forecast_rainfall)
 #print(x0_waterlevel[K])
 print(X_forecast_waterlevel)
 
+if X_forecast_rainfall > 400.7 and X_forecast_waterlevel > 2.75:
+    print("Be alert, there might be a flood situation")
+else:
+    print("Be Relax, No flood risk")
 
+
+###################### Following is the model without extra logic (for referance only) ###################################
+
+"""
+loc = ("dataSource/ChilawData.xlsx")
+x0 = []
+
+wb = xlrd.open_workbook(loc)
+sheet = wb.sheet_by_index(0)
+sheet.cell_value(0, 0)
+
+for i in range(sheet.nrows):
+    x0.append(sheet.cell_value(i, 2))
+
+def accumu(lis):
+    total = 0
+    for x in lis:
+        total += x
+        yield total
+
+x1 = list(accumu(x0))
+
+def avg(lis):
+  pre = lis[0]
+  for x in lis:
+      avgVal = (pre + x)/2
+      pre = x
+      yield avgVal
+
+z1 = [x * -1 for x in list(avg(x1))]
+
+z1 = np.delete(z1 ,0)
+
+B = pd.DataFrame({'0':z1})
+B['1']  = 1
+
+B_ = B.to_numpy()
+B_t = B.transpose().to_numpy()
+
+E1_pre = B_t.dot(B_)
+
+E1 = np.linalg.inv(E1_pre)
+
+Xn = np.delete(x0 ,0)
+
+E2 = B_t.dot(Xn)
+
+parameter = E1.dot(E2)
+
+a = parameter.item(0)
+b = parameter.item(1)
+
+def dif_eq(k):
+  return (x0[1] - (b/a)) * math.exp(-1*a*(k-1)) + (b/a)
+
+K = 30
+X_forecast_rainfall = dif_eq(K) - dif_eq(K-1)
+
+print(x0[K])
+print(X_forecast_rainfall) """
 
