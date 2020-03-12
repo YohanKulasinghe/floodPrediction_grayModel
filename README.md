@@ -70,3 +70,10 @@ _Comparrision_ folder contains the graph shows waterlevel and rainfall fluctuati
 cd in to Comparrision folder and execute following line
 python comparison.py
 ```
+
+_2007-2012_ folder contains monthwise analysis of data
+
+```
+cd in to 2007-2012 folder and execute following line 
+python 2007-2012.py
+```
