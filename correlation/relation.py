@@ -86,6 +86,6 @@ pyplot.show()
 pyplot.subplot(131)
 pyplot.scatter(c_rainfall, c_waterlevel)
 pyplot.xlabel('Chilaw_Rainfall')
-pyplot.ylabel('Chilaw_Temperature')
+pyplot.ylabel('Chilaw_WaterLevel')
 pyplot.show()
 
