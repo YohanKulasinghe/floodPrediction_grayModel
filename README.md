@@ -2,11 +2,13 @@
 
 Grey forecast can be used to predict behavior of non-linear time series. This is a non-statistical forecasting method that is particularly effective when the number of observations is insufficient.
 
-This Project contains two approches for implement gray model 
+This Project contains two approches for implement gray model.
+
     1. Project with Angular frontend and flask(python) backend using gray 1.1 model 
     2. Full python project to predict flood using gray 1.1 model.
 
 **Here How to Run Angular Project**
+
 (You need only two folder to run _grayModelAPI_ and _floodprediction_. (Other contents for further referance if needed)
 
 Clone the repo. 
@@ -39,6 +41,7 @@ You will find a tab in nav bar to navigate prediction Precision checker.
 https://colab.research.google.com/drive/1pLc1RD-NyBu4xamPgRY5u5A7W6whqpnv 
 
 **Here How to Run Python Project**
+
 (You need only one folder to run _completePython_. (Other contents for further referance if needed)
 
 Clone the repo. 
@@ -56,14 +59,14 @@ python fulPythonProject.py
 _Corrilation_ folder contains the proof of rainfall and water level is having
 positive corrilation 
 
-cd in to correlation folder and execute following line 
 ```
+cd in to correlation folder and execute following line 
 python fulPythonProject.py
 ```
 
 _Comparrision_ folder contains the graph shows waterlevel and rainfall fluctuation 
-
-cd in to Comparrision folder and execute following line 
+ 
 ```
+cd in to Comparrision folder and execute following line
 python comparison.py
 ```
