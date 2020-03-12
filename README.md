@@ -28,3 +28,11 @@ pip install pandas
 pip install xlrd
 python run model.py
 ```
+**Other Content**
+
+Corrilation folder contains the proof of rainfall and water level is having
+positive corrilation 
+
+Comparrision folder contains the graph shows waterlevel and rainfall fluctuation 
+
+CompletePython folder contains full project in python 
