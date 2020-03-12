@@ -16,14 +16,14 @@ Clone the repo.
 git clone https://github.com/YohanKulasinghe/floodPrediction_grayModel.git
 ```
 
-from root folder run followings (root folder - floodForcasting)
+From root folder run followings (Root folder - floodForcasting)
 ```
 cd floodForcasting
 npm install
 ng serve
 ```
 
-from root folder run followings (root folder - grayModel)
+From root folder run followings (Root folder - grayModel)
 ```
 cd grayModel
 pip install Flask
@@ -49,7 +49,7 @@ Clone the repo.
 git clone https://github.com/YohanKulasinghe/floodPrediction_grayModel.git
 ```
 
-from root folder run following (root folder - completePython)
+From root folder run following (root folder - completePython)
 ```
 python fulPythonProject.py
 ```
